@@ -1,8 +1,7 @@
 <?php
 include "koneksi.php";
 include "header.php";
-$query = $koneksi->query("SELECT * FROM kategori");
-$i = 1;
+
 ?>
 <div class="container">
     <div class="row">
@@ -15,9 +14,9 @@ $i = 1;
                             <a href="" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <div class="col">
-                            <form action="" class="form-inline float-right">
-                                <input type="text" class="form-control">
-                                <input type="submit" value="Cari" class="btn btn-primary ml-2">
+                            <form action="" method="GET" class="form-inline float-right">
+                                <input type="text" name="cari_kategori" class="form-control">
+                                <input type="submit" value="Cari" class="btn btn-primary ml-2" name="cari">
                             </form>
                         </div>
                     </div>
@@ -30,7 +29,16 @@ $i = 1;
                                     <th>Nama Kategori</th>
                                     <th>Aksi</th>
                                 </tr>
-                                <?php while($row = $query->fetch_assoc()) { ?>
+                                <?php 
+                                    $i = 1;
+                                    if(isset($_GET['cari'])){
+                                        $term = $_GET['cari_kategori'];
+                                        $query = $koneksi->query("SELECT * FROM kategori WHERE nama LIKE '%$term%'");
+                                    } else {
+                                        $query = $koneksi->query("SELECT * FROM kategori");
+                                    }
+                                    while($row = $query->fetch_assoc()) { 
+                                ?>
                                 <tr>
                                     <td><?= $i ?></td>
                                     <td><?= $row['id_kategori'] ?></td>

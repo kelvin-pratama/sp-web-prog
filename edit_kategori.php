@@ -23,7 +23,7 @@ $row = $query->fetch_assoc();
                                 <div class="form-group">
                                     <label for="">Nama Kategori</label>
                                     <input type="hidden" name="id" value="<?= $row["id_kategori"] ?>">
-                                    <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" value="<?= $row["nama"] ?>">
+                                    <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" value="<?= $row["nama"] ?>" required>
                                 </div>
                                 <input type="submit" value="Simpan" class="btn btn-primary">
                             </form>

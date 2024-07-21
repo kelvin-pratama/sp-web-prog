@@ -12,7 +12,7 @@ include "header.php";
                             <form action="simpan_kategori.php" method="POST">
                                 <div class="form-group">
                                     <label for="">Nama Kategori</label>
-                                    <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori">
+                                    <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" required>
                                 </div>
                                 <input type="submit" value="Simpan" class="btn btn-primary">
                             </form>

@@ -11,7 +11,7 @@ include "header.php";
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <a href="" class="btn btn-primary">Tambah Data</a>
+                            <a href="tambah_kategori.php" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <div class="col">
                             <form action="" method="GET" class="form-inline float-right">

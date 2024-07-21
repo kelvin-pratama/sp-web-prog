@@ -19,3 +19,6 @@ PROGRESS:
 - (DONE!) Video 5 (https://www.youtube.com/watch?v=5s7J1vvmI8A&list=PL1uv49qmfVsnXTTv6x88cTDz6554G4psJ&index=5&pp=iAQB)
 - (DONE!) Video 6 (https://www.youtube.com/watch?v=QzVayRpYpd8&list=PL1uv49qmfVsnXTTv6x88cTDz6554G4psJ&index=6&pp=iAQB)
 - (DONE!) Video 7 (https://www.youtube.com/watch?v=WXg3sbJDyqY&list=PL1uv49qmfVsnXTTv6x88cTDz6554G4psJ&index=8&pp=iAQB)
+
+FEATURE:
+- Data Kategori

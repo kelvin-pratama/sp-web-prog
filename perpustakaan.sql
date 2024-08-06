@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 06/07/2024 20:20:55
+ Date: 06/08/2024 20:20:10
 */
 
 SET NAMES utf8mb4;
@@ -28,10 +28,6 @@ CREATE TABLE `admin`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_admin`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of admin
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for buku
@@ -58,10 +54,6 @@ CREATE TABLE `buku`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of buku
--- ----------------------------
-
--- ----------------------------
 -- Table structure for detail_peminjaman
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_peminjaman`;
@@ -76,10 +68,6 @@ CREATE TABLE `detail_peminjaman`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of detail_peminjaman
--- ----------------------------
-
--- ----------------------------
 -- Table structure for kategori
 -- ----------------------------
 DROP TABLE IF EXISTS `kategori`;
@@ -87,11 +75,7 @@ CREATE TABLE `kategori`  (
   `id_kategori` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `nama` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_kategori`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of kategori
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for peminjaman
@@ -112,10 +96,6 @@ CREATE TABLE `peminjaman`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of peminjaman
--- ----------------------------
-
--- ----------------------------
 -- Table structure for penerbit
 -- ----------------------------
 DROP TABLE IF EXISTS `penerbit`;
@@ -124,11 +104,7 @@ CREATE TABLE `penerbit`  (
   `nama_penerbit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `kota` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_penerbit`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of penerbit
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for pengadaan
@@ -150,10 +126,6 @@ CREATE TABLE `pengadaan`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of pengadaan
--- ----------------------------
-
--- ----------------------------
 -- Table structure for pengembalian
 -- ----------------------------
 DROP TABLE IF EXISTS `pengembalian`;
@@ -171,10 +143,6 @@ CREATE TABLE `pengembalian`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of pengembalian
--- ----------------------------
-
--- ----------------------------
 -- Table structure for penulis
 -- ----------------------------
 DROP TABLE IF EXISTS `penulis`;
@@ -182,11 +150,7 @@ CREATE TABLE `penulis`  (
   `id_penulis` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `nama_penulis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_penulis`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of penulis
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for siswa
@@ -200,13 +164,9 @@ CREATE TABLE `siswa`  (
   `tgl_lahir` date NOT NULL,
   `alamat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `no_hp` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `foto_siswa` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `foto_siswa` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`nisn`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of siswa
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for temp_peminjaman
@@ -220,9 +180,5 @@ CREATE TABLE `temp_peminjaman`  (
   INDEX `fk_id_buku_in_temp_peminjaman-table`(`id_buku` ASC) USING BTREE,
   CONSTRAINT `fk_id_buku_in_temp_peminjaman-table` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of temp_peminjaman
--- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;

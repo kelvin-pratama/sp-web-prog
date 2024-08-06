@@ -6,10 +6,7 @@
     <!-- Footer End -->
 
 
-    <script src="dist/js/jquery/jquery.slim.min.js"
-        crossorigin="anonymous"></script>
-    <script src="dist/js/bootstrap/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

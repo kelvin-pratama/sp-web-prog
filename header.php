@@ -8,6 +8,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/plugins/jquery-ui/jquery-ui.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/plugins/jquery-ui/jquery-ui.structure.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/plugins/jquery-ui/jquery-ui.theme.css" crossorigin="anonymous">
+
+    <script src="dist/js/jquery/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="dist/plugins/jquery-ui/jquery-ui.js" crossorigin="anonymous"></script>
+    <script src="dist/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
     <title>Hello, world!</title>
 </head>

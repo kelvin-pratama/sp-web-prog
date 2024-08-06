@@ -25,6 +25,7 @@ include "header.php";
                             <table class="table table-bordered table-striped">
                                 <tr>
                                     <th>No.</th>
+                                    <th>Kode Buku</th>
                                     <th>ISBN</th>
                                     <th>Judul Buku</th>
                                     <th>Penulis</th>
@@ -58,7 +59,11 @@ include "header.php";
                                                                         INNER JOIN penulis AS B ON A.id_penulis = B.id_penulis 
                                                                         INNER JOIN penerbit AS C ON A.id_penerbit = C.id_penerbit 
                                                                         INNER JOIN kategori AS D ON A.id_kategori = D.id_kategori 
-                                                                    WHERE A.judul LIKE '%$term%'");
+                                                                    WHERE (A.judul LIKE '%$term%'
+                                                                            OR A.isbn LIKE '%$term%'
+                                                                            OR B.nama_penulis LIKE '%$term%'
+                                                                            OR C.nama_penerbit LIKE '%$term%'
+                                                                            OR D.nama LIKE '%$term%')");
                                     } else {
                                         $query = $koneksi->query("SELECT 
                                                                     A.id_buku, 

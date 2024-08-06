@@ -1,5 +1,10 @@
 <?php
 include "header.php";
+include "koneksi.php";
+$data_peminjaman = $koneksi->query("SELECT COUNT(*) AS jumlah FROM peminjaman")->fetch_assoc();
+$data_pengembalian = $koneksi->query("SELECT COUNT(*) AS jumlah FROM pengembalian")->fetch_assoc();
+$data_buku = $koneksi->query("SELECT SUM(jumlah) AS jumlah FROM buku")->fetch_assoc();
+$data_siswa = $koneksi->query("SELECT COUNT(*) AS jumlah FROM siswa")->fetch_assoc();
 ?>
 <!-- Content start -->
 <div class="container">
@@ -20,7 +25,7 @@ include "header.php";
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Peminjaman</h5>
-                    <p class="card-text">Jumlah transaksi peminjaman 5</p>
+                    <p class="card-text">Jumlah transaksi peminjaman <?= $data_peminjaman["jumlah"] ?></p>
                     <a href="#" class="btn btn-primary">Peminjaman</a>
                 </div>
             </div>
@@ -29,7 +34,7 @@ include "header.php";
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Pengembalian</h5>
-                    <p class="card-text">Jumlah transaksi pengembalian 5</p>
+                    <p class="card-text">Jumlah transaksi pengembalian <?= $data_pengembalian["jumlah"] ?></p>
                     <a href="#" class="btn btn-primary">Pengembalian</a>
                 </div>
             </div>
@@ -38,7 +43,7 @@ include "header.php";
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Data Buku</h5>
-                    <p class="card-text">Jumlah buku yang tersedia 2 Buku</p>
+                    <p class="card-text">Jumlah buku yang tersedia <?= $data_buku["jumlah"] ?> Buku</p>
                     <a href="#" class="btn btn-primary">Data Buku</a>
                 </div>
             </div>
@@ -47,7 +52,7 @@ include "header.php";
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Data Siswa</h5>
-                    <p class="card-text">Jumlah siswa yang ada 3 Siswa</p>
+                    <p class="card-text">Jumlah siswa yang ada <?= $data_siswa["jumlah"] ?> Siswa</p>
                     <a href="#" class="btn btn-primary">Data Siswa</a>
                 </div>
             </div>

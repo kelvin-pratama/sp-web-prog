@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
 include "header.php";
+include "koneksi.php";
 
 ?>
 <div class="container">
@@ -45,7 +45,7 @@ include "header.php";
                                     <td><?= $row['id_penerbit'] ?></td>
                                     <td><?= $row['nama_penerbit'] ?></td>
                                     <td><?= $row['kota'] ?></td>
-                                    <td><a href="edit_penerbit.php?id=<?= $row['id_penerbit'] ?>" class="btn btn-warning">Edit</a> | <a href="hapus_penerbit.php?id=<?= $row['id_penerbit'] ?>" class="btn btn-danger">Hapus</a></td>
+                                    <td><a href="detil_penerbit.php?id=<?= $row['id_penerbit'] ?>" class="btn btn-success">Detil</a> | <a href="edit_penerbit.php?id=<?= $row['id_penerbit'] ?>" class="btn btn-warning">Edit</a> | <a href="hapus_penerbit.php?id=<?= $row['id_penerbit'] ?>" class="btn btn-danger">Hapus</a></td>
                                 </tr>
                                 <?php $i++;} ?>
                             </table>

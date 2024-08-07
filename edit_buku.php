@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
 include "header.php";
+include "koneksi.php";
 if(!isset($_GET['id'])){
     header('location: data_buku.php');
 }

@@ -1,4 +1,5 @@
 <?php
+include "session_guard.php";
 include "koneksi.php";
 $nisn = $_POST["nisn"];
 $nama_siswa = $_POST["nama_siswa"];

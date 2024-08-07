@@ -1,3 +1,6 @@
+<?php 
+include 'session_guard.php';
+?>
 <!doctype html>
 <html lang="en">
 

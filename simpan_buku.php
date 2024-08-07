@@ -1,4 +1,5 @@
 <?php
+include "session_guard.php";
 include "koneksi.php";
 function generateRandomString() {
     $prefix = "B-";

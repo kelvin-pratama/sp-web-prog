@@ -1,4 +1,5 @@
 <?php
+include "session_guard.php";
 include "koneksi.php";
 $id_penulis = $_POST["id"];
 $nama_penulis = $_POST["nama_penulis"];

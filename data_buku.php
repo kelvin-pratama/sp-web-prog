@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
 include "header.php";
+include "koneksi.php";
 
 ?>
 <div class="container">
@@ -28,11 +28,10 @@ include "header.php";
                                     <th>Kode Buku</th>
                                     <th>ISBN</th>
                                     <th>Judul Buku</th>
-                                    <th>Penulis</th>
-                                    <th>Penerbit</th>
                                     <th>Kategori</th>
                                     <th>Tahun Terbit</th>
                                     <th>Jumlah</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                                 <?php 
@@ -93,12 +92,24 @@ include "header.php";
                                     <td><?= $row['id_buku'] ?></td>
                                     <td><?= $row['isbn'] ?></td>
                                     <td><?= $row['judul'] ?></td>
-                                    <td><?= $row['nama_penulis'] ?></td>
-                                    <td><?= $row['nama_penerbit'] ?></td>
                                     <td><?= $row['nama_kategori'] ?></td>
                                     <td><?= $row['tahun_terbit'] ?></td>
-                                    <td><?= $row['jumlah'] ?></td>
-                                    <td><a href="edit_buku.php?id=<?= $row['id_buku'] ?>" class="btn btn-warning">Edit</a> | <a href="hapus_buku.php?id=<?= $row['id_buku'] ?>" class="btn btn-danger">Hapus</a></td>
+                                    <td><?= $row['jumlah'] ?> buku</td>
+                                    <td>
+                                        <?php
+                                            $id_buku = $row["id_buku"];
+                                            $total_buku = intval($koneksi->query("SELECT jumlah FROM buku WHERE id_buku = '$id_buku'")->fetch_assoc()["jumlah"]);
+                                            $total_pinjam = intval($koneksi->query("SELECT SUM(jumlah_pinjam) AS total_pinjam FROM detail_peminjaman WHERE id_buku = '$id_buku'")->fetch_assoc()["total_pinjam"]);
+                                            $jumlah_tersedia = $total_buku - $total_pinjam;
+                                            $check_avail = $jumlah_tersedia < 1;
+                                            if($check_avail) {
+                                        ?>
+                                            <span class="badge badge-danger">Tidak Tersedia: <?= $jumlah_tersedia ?> buku</span>
+                                        <?php } else { ?>
+                                            <span class="badge badge-success">Tersedia: <?= $jumlah_tersedia ?> buku</span>
+                                        <?php } ?>
+                                    </td>
+                                    <td><a href="detil_buku.php?id=<?= $row['id_buku'] ?>" class="btn btn-success">Detil</a> |<a href="edit_buku.php?id=<?= $row['id_buku'] ?>" class="btn btn-warning">Edit</a> | <a href="hapus_buku.php?id=<?= $row['id_buku'] ?>" class="btn btn-danger">Hapus</a></td>
                                 </tr>
                                 <?php $i++;} ?>
                             </table>

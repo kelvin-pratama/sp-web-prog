@@ -1,4 +1,5 @@
 <?php
+include "session_guard.php";
 include "koneksi.php";
 $id_buku = $_GET["id"];
 $query = $koneksi->query("DELETE FROM buku WHERE id_buku = '$id_buku'");

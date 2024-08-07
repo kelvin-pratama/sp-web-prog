@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
 include "header.php";
+include "koneksi.php";
 $array_jkel = array("L" => "Laki-laki", "P" => "Perempuan");
 ?>
 <div class="container">

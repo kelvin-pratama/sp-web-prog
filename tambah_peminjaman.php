@@ -33,7 +33,7 @@ $query_data_siswa = $koneksi->query("SELECT * FROM siswa");
                                             while($row_buku = $query_data_buku->fetch_assoc()){
                                                 $id_buku_q = $row_buku["id_buku"];
                                                 $total_buku = intval($koneksi->query("SELECT jumlah FROM buku WHERE id_buku = '$id_buku_q'")->fetch_assoc()["jumlah"]);
-                                                $total_pinjam = intval($koneksi->query("SELECT SUM(jumlah_pinjam) AS total_pinjam FROM detail_peminjaman WHERE id_buku = '$id_buku_q'")->fetch_assoc()["total_pinjam"]);
+                                                $total_pinjam = intval($koneksi->query("SELECT SUM(jumlah_pinjam) AS total_pinjam FROM detail_peminjaman INNER JOIN peminjaman ON peminjaman.id_peminjaman = detail_peminjaman.id_peminjaman WHERE id_buku = '$id_buku_q' AND status_pinjam = 'Pinjam'")->fetch_assoc()["total_pinjam"]);
                                                 $jumlah_tersedia = $total_buku - $total_pinjam;
                                                 $check_avail = $jumlah_tersedia < 1;
                                         ?>
